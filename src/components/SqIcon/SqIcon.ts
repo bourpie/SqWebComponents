@@ -26,11 +26,12 @@ export class SqIcon extends LitElement {
             --play-color: #1D2141;
             --play-hover-color: #C35600;
             --play-active-color: #C35600;
+            --play-transform-rotate: rotate(90deg);
         }
         .icon {
             display: inline-block;
-            width: 64px;
-            height: 64px;
+            width: 2rem;
+            height: 2rem;
             background-size: cover;
         }
         .chevron, .play {

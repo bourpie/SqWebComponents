@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import type { ButtonProps } from './my-button';
-import { MyButton } from './my-button';
+import type { ButtonProps } from './button';
+import { Button } from './button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 const meta = {
   title: 'Example/Button',
   tags: ['autodocs'],
-  render: (args) => MyButton(args),
+  render: (args) => Button(args),
   argTypes: {
     backgroundColor: { control: 'color' },
     onClick: { action: 'onClick' },

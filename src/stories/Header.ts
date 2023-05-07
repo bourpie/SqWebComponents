@@ -1,6 +1,6 @@
 import { html } from 'lit';
 
-import { Button } from './my-button';
+import { Button } from './button';
 import './header.css';
 
 type User = {

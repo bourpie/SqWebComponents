@@ -6,12 +6,14 @@ export class SqLink extends LitElement {
     @property() label = 'Mon lien'
     @property() href = '#/'
     @property() variant = 'default'
+    @property() nav = 'megamenu';
     render() {
         return html`
             <a 
-                class=${[`variant--${this.variant}`].join(' ')} 
+                class=${[`variant--${this.variant}`, `${this.nav ? 'main-nav' : ''}`].join(' ')} 
                 href=${this.href}>
-                    ${this.label}
+                    ${this.label} 
+                    ${this.nav === 'megamenu' ? html`<sq-icon name="play" />` : ''}
             </a>
         `
     }
@@ -49,6 +51,19 @@ export class SqLink extends LitElement {
         .variant--default:hover {
             text-decoration-thickness: 2px;
             background: rgba(0, 0, 0, 0.05);
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+        .main-nav > sq-icon {
+            transform-origin: center center;
+            transform: rotate(90deg);
+            transition: transform 0.4s ease-in;
+        }
+        .main-nav:hover > sq-icon {
+            transform: rotate(270deg);
         }
 
         .variant--lien:active {

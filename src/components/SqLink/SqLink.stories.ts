@@ -12,10 +12,26 @@ export default {
     argTypes: {
         variant: {
           control: { type: 'select' },
-          options: ['default', 'header-secondary'],
+          options: [
+            'default', 
+            'header-secondary',
+            'header-primary',
+            'btn-primary',
+            'btn-outline',
+          ],
+        },
+        nav: {
+          control: 'string',
         },
       },
-    render: (args) => html`<sq-link href="javascript:void(0)" variant=${args.variant}>${args.label}</sq-link>`,
+    render: (args) => html`
+      <sq-link 
+        href="javascript:void(0)"
+        nav=${args.nav}
+        variant=${args.variant}>
+          ${args.label}
+          ${args.nav === 'megamenu' ? 'allo' : ''}
+      </sq-link>`,
   } as Meta
 
   export const Default: StoryObj = {
@@ -43,10 +59,16 @@ export default {
         variant: 'btn-primary'
     }
   }
-
   export const ButtonOutline: StoryObj = {
     name: 'Bouton outline',
     args: {
       variant: 'btn-outline'
+    },
+  }
+  export const MainNav: StoryObj = {
+    name: 'Lien navigation principale',
+    args: {
+      variant: 'header-primary',
+      nav: 'megamenu'
     },
   }
