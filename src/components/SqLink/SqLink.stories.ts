@@ -6,7 +6,7 @@ import './SqLink'
 export default {
     title: 'Lien',
     parameters: {
-      layout: 'centered',
+      layout: 'padded',
     },
     tags: ['autodocs'],
     argTypes: {
@@ -20,9 +20,6 @@ export default {
             'btn-outline',
           ],
         },
-        nav: {
-          control: 'string',
-        },
       },
     render: (args) => html`
       <sq-link 
@@ -30,7 +27,6 @@ export default {
         nav=${args.nav}
         variant=${args.variant}>
           ${args.label}
-          ${args.nav === 'megamenu' ? 'allo' : ''}
       </sq-link>`,
   } as Meta
 
@@ -46,7 +42,6 @@ export default {
         variant: 'header-primary'
     }
   }
-
   export const HeaderSecondary: StoryObj = {
     name: 'Entête secondaire',
     args: {
@@ -63,12 +58,5 @@ export default {
     name: 'Bouton outline',
     args: {
       variant: 'btn-outline'
-    },
-  }
-  export const MainNav: StoryObj = {
-    name: 'Lien navigation principale',
-    args: {
-      variant: 'header-primary',
-      nav: 'megamenu'
     },
   }

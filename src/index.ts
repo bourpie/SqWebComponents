@@ -1,3 +1,5 @@
 export * from './components/SqButton/SqButton'
 export * from './components/SqLink/SqLink'
 export * from './components/SqIcon/SqIcon'
+export * from './components/SqLinkMainNav/SqLinkMainNav'
+export * from './components/SqMegaMenuItem/SqMegaMenuItem'

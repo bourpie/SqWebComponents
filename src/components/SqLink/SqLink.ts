@@ -6,18 +6,16 @@ export class SqLink extends LitElement {
     @property() label = 'Mon lien'
     @property() href = '#/'
     @property() variant = 'default'
-    @property() nav = 'megamenu';
     render() {
         return html`
             <a 
-                class=${[`variant--${this.variant}`, `${this.nav ? 'main-nav' : ''}`].join(' ')} 
+                class=${[`variant--${this.variant}`].join(' ')} 
                 href=${this.href}>
                     ${this.label} 
-                    ${this.nav === 'megamenu' ? html`<sq-icon name="play" />` : ''}
+                    <slot></slot>
             </a>
         `
     }
-
     static styles = css`
         :host {
             --color: rgba(0, 0, 22, 1);
@@ -31,14 +29,12 @@ export class SqLink extends LitElement {
             --bg-color-white: #FFFFFF;
             --bg-color-active-outline: #df6100;
         }
-
         a {
             font-family: var(--font-family);
             letter-spacing: .01rem;
             line-height: 1.5;
             transition: all 0.4s ease-in;
         }
-
         .variant--default {
             font-size: 1rem;
             color: var(--color);
@@ -47,25 +43,10 @@ export class SqLink extends LitElement {
             text-decoration-color: var(--border-color);
             background: transparent;
         }
-
         .variant--default:hover {
             text-decoration-thickness: 2px;
             background: rgba(0, 0, 0, 0.05);
         }
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 1rem
-        }
-        .main-nav > sq-icon {
-            transform-origin: center center;
-            transform: rotate(90deg);
-            transition: transform 0.4s ease-in;
-        }
-        .main-nav:hover > sq-icon {
-            transform: rotate(270deg);
-        }
-
         .variant--lien:active {
             text-decoration-thickness: 2px;
             background: rgba(0, 0, 0, 0.1);
@@ -83,6 +64,9 @@ export class SqLink extends LitElement {
             color: var(--hover-color);
         }
         .variant--header-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
             font-size: 1.167rem;
             letter-spacing: .011875rem;
             line-height: 1.375rem;

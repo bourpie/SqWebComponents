@@ -14,7 +14,6 @@ export default {
           control: { type: 'select' },
           options: [
                 'chevron',
-                'play' 
             ],
         },
         direction: {
